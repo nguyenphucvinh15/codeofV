@@ -1,0 +1,42 @@
+#include <stdio.h>
+void nhap(int *a,int *n)
+{
+	printf("nhap n:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("a[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+void ketqua (int *a,int n)
+{
+	int count =0;
+	int max =1,tg,index;
+	for(int i=0;i<n;i++)
+	{
+		count++;
+		if(a[i]>a[i+1])
+		{
+			if(count>max)
+			{
+				max =count;
+				index=tg;
+			}
+			count =0;
+			tg=i+1;
+		}
+	}
+	printf("chi so,so phan tu: %d, %d\n",index,max);
+	for(int i=index;i<index+max;i++)
+	{
+		printf("%5d",a[i]);
+	}
+}
+int main ()
+{
+	int a[200];
+	int n;
+	nhap (a,&n);
+	ketqua (a,n);
+}
