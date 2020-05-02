@@ -1,0 +1,46 @@
+#include <stdio.h>
+void trave(int * ,int);
+void nhap (int *a,int *n)
+{
+	printf("nhap so phan tu:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("phantu[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+void chen(int *a,int n,int k)
+{
+int x;
+printf("nhap phan tu can chen:");
+
+scanf("%d",&x);
+for(int i=n;i>=k;i--)
+{
+	a[i]=a[i-1];
+}
+a[k]=x;
+n++;
+trave(a,n);
+}
+
+void trave(int *a,int n)
+{
+	
+	for(int i=0;i<n;i++)
+	{
+		printf("%5d",a[i]);
+	}
+}
+int main ()
+{
+	int a[200];
+int n;
+	int k;
+	nhap(a,&n);
+	printf("\nnhap vi tri can chen:");
+	scanf("%d",&k);
+	chen(a,n,k);
+return 0;
+}
