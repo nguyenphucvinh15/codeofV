@@ -1,2 +1,0 @@
-# codeofV
-C program
