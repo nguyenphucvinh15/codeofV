@@ -1,0 +1,56 @@
+#include <stdio.h>
+void trave(int * ,int);
+void nhap (int *a,int *n)
+{
+	printf("nhap so phan tu:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("phantu[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+void chen (int *a,int *b,int n,int m,int k)
+{
+	int c[200];//tao mot mang c cos size =m+n
+	int chisoa=0;
+	int chisob=0;
+		for(int i=0;i<n+m;i++)
+		{
+			if(i>=k-1&&i<(k+n-1))//chen mang a vao mang b
+			{
+				c[i]=a[chisoa];
+				chisoa++;
+			}
+			else {
+				c[i]=b[chisob];
+				chisob++;
+			}
+		}
+	
+	for(int i=0;i<n+m;i++)
+	{
+		printf("%5d",c[i]);
+	}
+}
+void trave(int *a,int n)
+{
+	
+	for(int i=0;i<n;i++)
+	{
+		printf("%5d",a[i]);
+	}
+}
+int main ()
+{
+	int a[200];
+	int b[200];
+	int n;int m;
+	int k;
+	nhap(a,&n);
+	nhap(b,&m);
+	printf("\nnhap vi tri can chen:");
+	scanf("%d",&k);
+	chen(a,b,n,m,k);
+return 0;
+}
