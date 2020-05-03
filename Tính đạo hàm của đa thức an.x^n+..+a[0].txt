@@ -1,0 +1,33 @@
+#include stdio.h
+void nhap (int a,int n)
+{
+	printf(nhap n);
+	scanf(%d,n);
+	for(int i=0;in;i++)
+	{
+		printf(a[%d]=,i);
+		scanf(%d,&a[i]);
+	}
+}
+double ketqua (int a,int n)
+{
+	double x ;
+	double sum=a[1];vì a[0] đạo hàm bằng 0 nên bắt đầu cộng từ a[1].
+	printf(nhap x);
+	scanf(%lf,&x);
+	double subx=1;
+	for(int i=2;i=n;i++)vòng lặp bắt đầu từ a2
+	{
+		subx=x;
+		sum+=a[i]isubx;nhân thêm i vì đào hàm mũ.
+	}
+	printf(gia tri dao ham cua da thuc la %.2lf,sum);
+}
+int main ()
+{
+	int a[100];
+	int n;
+	nhap (a,&n);
+	ketqua (a,n);
+return 0;
+}
