@@ -12,24 +12,28 @@ void nhap(int *a,int *n)
 void ketqua (int *a,int n)
 {
 	int count =0;
-	int max =1,tg=0,index;
+	int max=1;
+	int tg=0;//day la chi so dau tien cua day hien tai.
+	int index;//day la chi so chinh thuc cua day tang.
 	for(int i=0;i<n;i++)
 	{
-		count++;
-		if(a[i]>a[i+1])
+		count ++;
+		if(a[i]>a[i+1])//neu gap phan tu giam
 		{
 			if(count>max)
 			{
-				max =count;
-				index=tg;
+				max=count;
+			index=tg	;
 			}
-			count =0;
+			count =0;//xet lai day moi
 			tg=i+1;
 		}
 	}
-	printf("chi so,so phan tu: %d, %d\n",index,max);
+	printf("phan tu dau tien trong mang la: a[%d]\nso phan tu la %d\n",index,max)	;
+	printf("day tang la:\n");
 	for(int i=index;i<index+max;i++)
 	{
+	
 		printf("%5d",a[i]);
 	}
 }
