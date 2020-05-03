@@ -1,15 +1,15 @@
 #include <stdio.h>
-void nhap (int *a,int *n)
+void nhap (double *a,int *n)
 {
 	printf("nhap n:");
 	scanf("%d",n);
 	for(int i=0;i<*n;i++)
 	{
 		printf("a[%d]=",i);
-		scanf("%d",&a[i]);
+		scanf("%lf",&a[i]);
 	}
 }
-double ketqua (int *a,int n)
+double ketqua (double *a,int n)
 {
 	double x ;
 	double sum=a[0];
