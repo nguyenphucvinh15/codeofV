@@ -37,7 +37,7 @@ int main() {
 	int m, n;
 	printf("Nhap ma tran A: ");
 	nhap(a, &m, &n);
-	chuyenVi(a, b, n, m);
+	chuyenVi(a, b, m, n);
 	
 	printf("======================\n");
 	printf("Ma tran A: \n");
