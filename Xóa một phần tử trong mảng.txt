@@ -1,0 +1,58 @@
+#include <stdio.h>
+void trave(int *,int );
+void nhap (int *a,int *n)
+{
+	printf("nhap n:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("a[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+int chiso (int *a,int n,int x)
+{
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]==x)
+		return i;
+	}
+	return -1;
+}
+void xoa (int *a,int n,int k)
+{
+	int x;
+	printf("nhap gia tri phan tu can xoa ");
+	scanf("%d",&x);
+	k=chiso(a,n,x);
+	if(k==-1)
+	{
+		printf("khong co phan tu muon xoa");
+	}
+	else 
+	{
+		for(int i=k;i<=n-2;i++)
+	{
+		a[i]=a[i+1];
+	}
+	n--;
+	}
+	
+	trave (a,n);
+}
+void trave(int *a,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		printf("%5d",a[i]);
+	}
+}
+int main ()
+{
+	int a[200];
+	int n;
+	int k;
+	nhap (a,&n);
+	xoa(a,n,k);
+return 0;
+}
