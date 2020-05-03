@@ -25,7 +25,7 @@ double ketqua (int a,int n)
 }
 int main ()
 {
-	int a[100];
+	double a[100];
 	int n;
 	nhap (a,&n);
 	ketqua (a,n);
