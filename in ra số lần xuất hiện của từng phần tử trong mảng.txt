@@ -1,0 +1,60 @@
+#include <stdio.h>
+void trave(int *,int *,int );
+void nhap (int *a,int *n)
+{
+	printf("nhap n:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("a[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+int chiso (int *b,int n,int x)
+{
+	for(int i=0;i<n;i++)
+	{
+		if(b[i]==x)
+		return i;
+	}
+	return -1;
+}
+void dem (int *a,int n)
+{
+int b[100];
+int dem[100];
+int size=0;
+for(int i=0;i<n;i++)
+{
+	dem[i]=0;
+}
+for(int i=0;i<n;i++)
+{
+	int index=chiso(b,size,a[i]);
+	if(index==-1)
+	{
+		b[size]=a[i];
+		dem[size]=1;
+		size ++;
+	}
+	else{
+		dem[index]++;
+	}	
+}
+trave(b,dem,size);
+}
+void trave(int *b,int *dem,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		printf("gia tri:%d\t so lan:%d\n",b[i],dem[i]);
+	}
+}
+int main ()
+{
+	int a[200];
+	int n;
+	nhap (a,&n);
+	dem(a,n);
+return 0;
+}
