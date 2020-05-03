@@ -1,0 +1,50 @@
+#include <stdio.h>
+void nhap (int a[][50],int *m,int *n)
+{
+	printf("nhap so nguyen m,n:");
+	scanf("%d%d",m,n);
+	for(int i=1;i<=*m;i++)
+	{
+		for(int j=1;j<=*n;j++)
+		{
+		printf("a[%d][%d]=",i,j);
+		scanf("%d",&a[i][j]);
+		}
+	
+	}
+}
+void max(int a[][50],int m,int n)
+{
+	int max;
+	for(int i=1;i<=m;i++)
+	{
+		max =a[i][1];//khai bao gia tri max cua moi hang
+		for(int j=1;j<=n;j++)
+		{
+			if(a[i][j]>max)//neu co gia tri nao trong hang lon hon "max" thi gan no =max.
+			max =a[i][j];
+		}
+		printf("Max tren hang %d=%d\n",i ,max);
+	}
+	
+}
+void trave (int a[][50],int m,int n)
+{
+	for(int i=1;i<=m;i++)
+	{
+		for(int j=1;j<=n;j++)
+		{
+			printf("%5d",a[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main ()
+{
+	int a[50][50];
+	int m,n;
+	nhap (a,&m,&n);
+	max(a,m,n);
+	trave(a,m,n);
+return 0;
+}
