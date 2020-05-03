@@ -1,0 +1,33 @@
+#include <stdio.h>
+void nhap (int *a,int *n)
+{
+	printf("nhap n:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("a[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+double ketqua (int *a,int n)
+{
+	double x ;
+	double sum=a[0];
+	printf("nhap x:");
+	scanf("%lf",&x);
+	double subx=1;
+	for(int i=1;i<=n;i++)
+	{
+		subx*=x;
+		sum+=a[i]*subx;
+	}
+	printf("gia tri cua da thuc la: %.2lf",sum);
+}
+int main ()
+{
+	int a[100];
+	int n;
+	nhap (a,&n);
+	ketqua (a,n);
+return 0;
+}
