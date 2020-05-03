@@ -1,0 +1,45 @@
+#include <stdio.h>
+void nhap (double *a,int *n)
+{
+	printf("nhap so phan tu cua day:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("phantu%d=",i);
+		scanf("%lf",&a[i]);
+	}
+}
+double thaydoi (double *a,int n)
+{
+	double x ;
+	double sum=a[0];
+	printf("nhap x:");
+	scanf("%lf",&x);
+	double subx=1;
+	for(int i=1;i<=n;i++)
+	{
+		subx*=x;
+		a[i]=a[i]*subx;
+	}
+}
+int main ()
+{
+	double sum=0;
+	double a[100];
+	double b[100];
+	int n;
+	nhap (a,&n);
+	nhap (b,&n);
+	thaydoi(a,n);
+	thaydoi (b,n);
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			if(i==j)
+			sum+=a[i]+a[j];
+		}
+	}
+	printf("tong cac gia tri cua hai day da thuc la : %lf",sum);
+return 0;
+}
