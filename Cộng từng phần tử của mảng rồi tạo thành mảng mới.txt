@@ -1,0 +1,51 @@
+#include<stdio.h>
+void nhap (int *a,int *n)
+{
+	printf("nhap so phan tu:");
+	scanf("%d",n);
+	for(int i=0;i<*n;i++)
+	{
+		printf("phantu[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+}
+void trave(int *a,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		printf("%5d",a[i]);
+	}
+	printf("\n");
+}
+int main ()
+{int m,n;
+	int a[m]={},b[n]={};	
+	m=sizeof(a)/sizeof(int);
+	n=sizeof(b)/sizeof(int);
+	nhap (a,&m);
+	printf("so phan tu :%d\n",m);
+	trave(a,m);
+	nhap (b,&n);
+	printf("so phan tu :%d\n",n);
+	trave(b,n);
+	if(m<n)
+	{
+		m=n;
+	}
+	if(n<m)
+	{
+		n=m;
+	}
+	int c[m];
+	for(int i=0;i<m;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			if(i==j)
+			{
+				c[i]=a[i]+b[j];
+			}
+		}
+	}
+	trave(c,m);
+}
