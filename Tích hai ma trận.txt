@@ -1,0 +1,61 @@
+#include<stdio.h>
+
+void nhap(int a[][50], int *m, int *n)
+{
+	printf("\nNhap so hang, so cot cua ma tran A: ");
+	scanf("%d%d", m, n);
+	for(int i = 1; i<=*m; i++)
+	{
+		for(int j = 1;j<=*n; j++){
+			printf("\nphantu[%d][%d] = ", i, j);
+			scanf("%d", &a[i][j]);
+		}
+		printf("\n");
+	}
+}
+void trave(int a[][50], int m, int n)
+{
+	for(int i = 1; i<=m; i++){
+		for(int j =1; j<=n; j++){
+			printf("%5d", a[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+void tich(int a[][50], int b[][50], int c[][50], int m, int n, int k)
+{
+	for(int i=1;i<=m;i++)
+	{
+		for(int j=1;j<=k;j++)
+		{
+			for(int l=1;l<=n;l++)
+			{
+				c[i][j]+=a[i][l]*b[l][j];
+			}
+		}
+	}
+}
+
+int main(){ // start main function
+	int a[50][50], b[50][50], c[50][50] ;
+	int ma, na, mb, nb;
+	printf("\nNhap Ma Tran A: ");
+	nhap(a,&ma,&na);
+	trave(a,ma,na);
+	printf("\nNhap Ma Tran B: ");
+	nhap(b,&mb,&nb);
+	trave(b,mb,nb);
+	if(ma!=nb)
+	{
+		printf("hai ma tran khong kha tich");
+	}
+	else 
+	{
+		tich (a,b,c,ma,na,nb);
+		trave(c,ma,nb);
+		
+	}
+	
+	return 0;
+}
