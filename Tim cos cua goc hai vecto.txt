@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <math.h>
+void nhap (float a[],int &n)
+{
+	printf("nhap so phan tu cua vecto :");
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+		printf("phantu%d=",i);
+		scanf("%f",&a[i]);
+	}
+}
+float tich (float a[],float b[],int n )
+{
+	float sum=0;
+	for(int i=0;i<n;i++)
+	{
+		sum+=a[i]*b[i];
+	}
+	return sum;
+}
+float dodai(float a[],int n)
+{
+	float sum=0;
+	for(int i=0;i<n;i++)
+	{
+		sum+=a[i]*a[i];
+	}
+	return sqrt(sum);
+	
+}
+int main ()
+{
+	printf("So phan tu cua hai vecto phai bang nhau\n");
+	float a[50],b[50];
+	int sum,m,n;
+	printf("nhap vecto A :\n");
+	nhap (a,m);
+	printf("nhap vecto B :\n");
+	nhap (b,n);
+	printf("\ncos= %.4f",(float)tich(a,b,n)/(dodai(a,n)*dodai(b,n)));
+	
+return 0;
+}
