@@ -1,0 +1,63 @@
+#include <stdio.h>
+void nhap (int a[][50],int *n)
+{
+printf("nhap vao so dong,so cot:")	;
+scanf("%d",n);
+for(int i=0;i<*n;i++)
+{
+	for(int j=0;j<*n;j++)
+	{
+	printf("a[%d][%d]=",i+1,j+1);
+	scanf("%d",&a[i][j]);
+	}	
+}
+}
+void trave(int a[][50],int n )
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+				printf("%5d",a[i][j]);
+		}
+	printf("\n");
+	}
+}
+int determine (int a[][50],int n)
+{
+	int s,sum=0;
+	
+	if(n==1)
+	return a[0][0];
+	if(n==2)
+	return a[0][0]*a[1][1]-a[0][1]*a[1][0];
+	for(int k=0;k<n;k++)
+	{
+		int smaller[50][50];
+		for(int i=0;i<n;i++)
+		{
+			for(int j=1;j<n;j++)
+			{
+				if(i<k)
+				smaller [i][j-1]=a[i][j];
+				else if (i>	k)
+				smaller [i-1][j-1]=a[i][j];
+			}
+		}
+	if (k%2==0)
+	s=1;
+	else s=-1;
+	sum+=a[k][0]*s*determine(smaller,n-1);
+	}
+	return sum;
+}
+int main ()
+{
+	int a[50][50];
+	int n;
+	nhap (a,&n);
+	trave(a,n);
+	printf("det=%d",determine(a,n));
+	
+	return 0;
+}
