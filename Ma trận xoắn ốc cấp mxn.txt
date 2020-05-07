@@ -1,0 +1,80 @@
+#include<stdio.h>
+//	Chuong trinh in ra man hinh ma tran xoan oc kich thuoc m*n bat ki nhap vao tu ban phim.
+//	x1			x2	
+/*	a00 a01 a02 a03 y1
+	a10 a11 a12 a13
+	a20 a21 a22 a23
+	a30 a31 a32 a33
+	a40 a41 a42 a43	y2
+_______________________________________
+cac buoc thuc hien thuat toan:
+B0: khoi tao bien tu dong tang d = 0;
+topRight():
+B1: voi hang y1: 
+	for( i = x1; i<= x2; i++ )
+		a[y1][i] = d++;		
+B2: voi cot x2: 
+	for( j = y1+1; j<= y2; j++  )
+		a[j][x2] = d++;		
+B3: if( x2-x1 > 0 && y2-y1 > 0 )
+	loai bo hang y1, cot x2;
+	goi ham bottomLeft();
+	
+B4: voi hang y2: 
+	for( i = x2; i>= x1; i-- )
+		a[y2][i] = d++;
+B5: voi cot x1: 
+	for( int j = y2-1; j>= y1; j-- )
+		a[j][x1] = d++;
+B6: if( x2-x1 > 0 && y2-y1 > 0 )
+		loai bo hang y2, cot x1;
+		goi ham topRight();
+
+*/
+int d = 0;
+
+void topRight( int [][50], int, int, int, int );
+void bottomLeft( int [][50], int, int, int, int );
+
+void topRight( int a[][50], int x1, int y1, int x2, int y2 ){
+	for( int i = x1; i<= x2; i++ )	
+		a[y1][i] = d++;
+	for( int j = y1+1; j<= y2; j++ )
+		a[j][x2] = d++;
+	if( x2-x1 > 0 && y2-y1 > 0 ){
+		y1++; x2--;
+		bottomLeft(a, x1, y1, x2, y2 );
+	}
+}
+
+void bottomLeft( int a[][50], int x1, int y1, int x2, int y2  ){
+	for( int i = x2; i>= x1; i-- )
+		a[y2][i] = d++;
+	for( int j = y2-1; j>= y1; j-- )
+		a[j][x1] = d++;
+	if( x2-x1 > 0 && y2-y1 > 0 ){
+		x1++; y2--;
+		topRight(a, x1, y1, x2, y2 );
+	}
+}
+
+void result(int a[][50], int m, int n ){
+	for( int i = 0; i< m; i++ ){
+		for( int j = 0; j< n; j++ ){
+			printf("%5d", a[i][j]);
+		}
+		printf("\n\n");
+	}
+}
+
+int main(){
+	int a[50][50];
+	int m, n;
+	printf("so dong=");
+	scanf("%d", &m);
+	printf("so cot=");
+	scanf("%d", &n);
+	topRight( a, 0, 0, n-1, m-1 );
+	result( a, m, n );
+	return 0;
+}
